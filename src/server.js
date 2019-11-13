@@ -3,8 +3,15 @@ const express = require('express');
 const app = express();
 
 //executar codigo/rota
-app.get('/', (req, res) => {
-    return res.json({ message: "Hello Word"}); //envia um json
+//GET, PUT, POST, DELETE
+//req.query = Acessar query params (para filtros)
+//req.params = Acessar route params (para edição, delete)
+//req.body = Acessar corpo da requisição  
+
+app.use(express.json());
+
+app.post('/users', (req, res) => {
+    return res.json(req.body); //envia um json
 });   
 
 //porta
